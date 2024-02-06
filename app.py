@@ -24,7 +24,7 @@ def lung_defect(img):
 
     # Make a prediction
     prediction = model.predict(img).tolist()[0]
-    class_names = ['NORMAL', 'PNEUMONIA', 'TUBERCULOSIS', 'COVID19']
+    class_names = ['NORMAL', 'TUBERCULOSIS', 'PNEUMONIA', 'COVID19']
 
     # Returning a dictionary of class names and corresponding predictions
     return {class_names[i]: float(prediction[i]) for i in range(4)}
