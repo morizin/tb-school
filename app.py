@@ -13,6 +13,9 @@ model = tf.keras.models.load_model('./model.hdf5')
 
 # Function to preprocess the image and make predictions
 def lung_defect(img):
+
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
     # Preprocessing the image to fit the model input shape
     img = tf.image.resize(img, [128, 128])
     img = img[None, ...]
